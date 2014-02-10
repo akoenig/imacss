@@ -23,23 +23,25 @@ var fs     = require('fs'),
     };
 
 /**
- * DOCME
+ * Prints an error message to the console and exits
+ * the "imacss" application.
  *
- * @param  {[type]} message [description]
- * @return {[type]}         [description]
+ * @param  {string} message The message that should be printed.
+ *
  *
  */
 function error (message) {
-    console.log('\u001b[31m' + message + '\u001b[39m');
+    console.error('\u001b[31m' + message + '\u001b[39m');
 
     return process.exit(1);
 }
 
 /**
- * DOCME
+ * Normalizes the given path. If there is a tilde
+ * in the path, it will be resolved.
  *
- * @param  {[type]} normalizable [description]
- * @return {[type]}              [description]
+ * @param  {string} normalizable The "normalizable" path.
+ * @return {string} The normalized path.
  *
  */
 function normalizePath (normalizable) {
@@ -57,7 +59,7 @@ if (!args.glob) {
 args.glob = normalizePath(args.glob);
 
 imacss
-    .convert(args.glob, args.cssclass)
+    .transform(args.glob, args.cssclass)
     .on('error', function (err) {
         error('Converting images failed: ' + err);
     })

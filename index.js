@@ -19,13 +19,13 @@ var domain   = require('domain'),
     pkg      = require('./package.json');
 
 /**
- * DOCME
+ * Transforms image files to base64 encoded data URIs and embeds them into CSS files.
  *
- * @param  {[type]} glob [description]
- * @return {[type]}      [description]
+ * @param  {string} glob A globbing expression for matching particular image files.
+ * @param {string} clazz The CSS class which will be used as a prefix.
  *
  */
-exports.convert = function convert (glob, clazz) {
+exports.transform = function transform (glob, clazz) {
 
     var execution = domain.create(),
         transformation;

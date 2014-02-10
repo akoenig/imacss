@@ -1,7 +1,7 @@
 {
   "name": "imacss",
   "version": "0.1.0",
-  "description": "Converts images to data-uris and embeds them into CSS files.",
+  "description": "Transforms image files to base64 encoded data URIs and embeds them into CSS files.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -18,9 +18,9 @@ var fs     = require('fs'),
     gutil  = require('gulp-util');
 
 /**
- * DOCME
+ * Creates a vinyl based file description.
  *
- * @return {[type]} [description]
+ * @return {object} A vinyl file description based on a SVG in the assets directory.
  *
  */
 exports.createImageFile = function createImageFile () {
@@ -35,9 +35,9 @@ exports.createImageFile = function createImageFile () {
 };
 
 /**
- * DOCME
+ * Creates an example of the internal image data structure.
  *
- * @return {[type]} [description]
+ * @return {object} The internal image data structure based on a SVG in the assets directory.
  *
  */
 exports.createImage = function createImage () {
