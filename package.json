@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "imacss": "./bin/imacss"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:akoenig/imacss.git"
@@ -13,8 +16,7 @@
   "keywords": [
     "css",
     "images",
-    "data",
-    "uri",
+    "data uri",
     "base64"
   ],
   "author": "André König <andre.koenig@posteo.de>",

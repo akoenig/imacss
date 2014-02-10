@@ -13,7 +13,8 @@
 
 'use strict';
 
-var vfs      = require('vinyl-fs'),
+var domain   = require('domain'),
+    vfs      = require('vinyl-fs'),
     pipeline = require('./lib'),
     pkg      = require('./package.json');
 
@@ -26,12 +27,23 @@ var vfs      = require('vinyl-fs'),
  */
 exports.convert = function convert (glob, clazz) {
 
+    var execution = domain.create(),
+        transformation;
+
     clazz = clazz || pkg.name;
 
-    return vfs.src(glob)
-         .pipe(pipeline.purify())
-         .pipe(pipeline.slugify())
-         .pipe(pipeline.mimeify())
-         .pipe(pipeline.urify())
-         .pipe(pipeline.cssify(clazz));
+    execution.on('error', function (err) {
+        transformation.emit('error', err);
+    });
+
+    execution.run(function() {
+        transformation = vfs.src(glob)
+            .pipe(pipeline.purify())
+            .pipe(pipeline.slugify())
+            .pipe(pipeline.mimeify())
+            .pipe(pipeline.urify())
+            .pipe(pipeline.cssify(clazz));
+    }); 
+
+    return transformation;
 };

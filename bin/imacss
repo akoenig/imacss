@@ -1,0 +1,64 @@
+#!/usr/bin/env node
+
+/*
+ * imacss
+ *
+ * Copyright(c) 2014 André König <andre.koenig@posteo.de>
+ * MIT Licensed
+ *
+ */
+
+/**
+ * @author André König <andre.koenig@posteo.de>
+ *
+ */
+
+var fs     = require('fs'),
+    path   = require('path'),
+    imacss = require('../'),
+    args = {
+        glob: process.argv[2],
+        cssfile: process.argv[3],
+        cssclass: process.argv[4]
+    };
+
+/**
+ * DOCME
+ *
+ * @param  {[type]} message [description]
+ * @return {[type]}         [description]
+ *
+ */
+function error (message) {
+    console.log('\u001b[31m' + message + '\u001b[39m');
+
+    return process.exit(1);
+}
+
+/**
+ * DOCME
+ *
+ * @param  {[type]} normalizable [description]
+ * @return {[type]}              [description]
+ *
+ */
+function normalizePath (normalizable) {
+    if ('~' === normalizable.substr(0, 1)) {
+        normalizable = process.env.HOME + normalizable.substr(1)
+    }
+    
+    return path.resolve(normalizable)
+}
+
+if (!args.glob) {
+    return error('Please define the glob to your images.');
+}
+
+args.glob = normalizePath(args.glob);
+
+imacss
+    .convert(args.glob, args.cssclass)
+    .on('error', function (err) {
+        error('Converting images failed: ' + err);
+    })
+    .pipe(args.cssfile ? fs.createWriteStream(args.cssfile) : process.stdout)
