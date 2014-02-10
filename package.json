@@ -1,0 +1,26 @@
+{
+  "name": "imacss",
+  "version": "0.1.0",
+  "description": "Converts images to data-uris and embeds them into CSS files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:akoenig/imacss.git"
+  },
+  "keywords": [
+    "css",
+    "images",
+    "data",
+    "uri",
+    "base64"
+  ],
+  "author": "André König <andre.koenig@posteo.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akoenig/imacss/issues"
+  },
+  "homepage": "https://github.com/akoenig/imacss"
+}
