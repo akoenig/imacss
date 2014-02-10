@@ -13,6 +13,10 @@
 
 'use strict';
 
+var vfs      = require('vinyl-fs'),
+    pipeline = require('./lib'),
+    pkg      = require('./package.json');
+
 /**
  * DOCME
  *
@@ -20,6 +24,14 @@
  * @return {[type]}      [description]
  *
  */
-exports.convert = function convert (glob, cssfile, cssclass) {
+exports.convert = function convert (glob, clazz) {
 
+    clazz = clazz || pkg.name;
+
+    return vfs.src(glob)
+         .pipe(pipeline.purify())
+         .pipe(pipeline.slugify())
+         .pipe(pipeline.mimeify())
+         .pipe(pipeline.urify())
+         .pipe(pipeline.cssify(clazz));
 };

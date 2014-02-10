@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/akoenig/imacss/issues"
   },
-  "homepage": "https://github.com/akoenig/imacss"
+  "homepage": "https://github.com/akoenig/imacss",
+  "dependencies": {
+    "vinyl-fs": "0.0.2",
+    "slug": "~0.4.0"
+  }
 }
