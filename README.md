@@ -74,7 +74,7 @@ Install with [npm](https://npmjs.org/package/imacss)
 
 #### transform(glob[, namespace]);
 
-Converts the image files from the specified glob and returns a stream with the CSS selectors that can be piped to somewhere else.
+Transforms the image files from the specified glob and returns a stream with the CSS selectors that can be piped to somewhere else.
 
 **Arguments**
 
@@ -101,6 +101,10 @@ imacss
 
 
 ## Changelog
+
+### Version 0.1.1 (20140211)
+
+- Fixed typos in the README.
 
 ### Version 0.1.0 (20140211)
 
