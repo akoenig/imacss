@@ -16,6 +16,9 @@ Okay, enough words. Let's dive straight into a transformation example. If we ass
         background:url(data:image/svg+xml;base64,iVBORw0KGgoAAAANSUhADA...);
     }
 
+You can refer to this images by using the respective CSS classes:
+
+    <div class="imacss imacss-quitter">...</div>
 
 ## CLI
 
