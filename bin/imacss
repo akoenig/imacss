@@ -28,7 +28,6 @@ var fs     = require('fs'),
  *
  * @param  {string} message The message that should be printed.
  *
- *
  */
 function error (message) {
     console.error('\u001b[31m' + message + '\u001b[39m');
@@ -52,8 +51,30 @@ function normalizePath (normalizable) {
     return path.resolve(normalizable)
 }
 
+/**
+ * Simple function to determine if a given string
+ * is a path.
+ *
+ * @param  {string} str The path that should be checked.
+ *
+ * @return {Boolean}
+ *
+ */
+function isPath (str) {
+    return (~str.indexOf(path.sep) || ~str.indexOf('.css'));
+}
+
 if (!args.glob) {
     return error('Please define the glob to your images.');
+}
+
+//
+// Check if a css file has been defined.
+//
+if (args.cssfile && !isPath(args.cssfile)) {
+    args.cssclass = args.cssfile;
+
+    delete args.cssfile;
 }
 
 args.glob = normalizePath(args.glob);
@@ -63,4 +84,4 @@ imacss
     .on('error', function (err) {
         error('Converting images failed: ' + err);
     })
-    .pipe(args.cssfile ? fs.createWriteStream(args.cssfile) : process.stdout)
+    .pipe(args.cssfile ? fs.createWriteStream(args.cssfile) : process.stdout);

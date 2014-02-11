@@ -1,10 +1,15 @@
 {
   "name": "imacss",
   "version": "0.1.0",
-  "description": "Transforms image files to base64 encoded data URIs and embeds them into CSS files.",
+  "description": "An application and library that transforms image files to data URIs and embeds these into a single CSS file.",
+  "author": {
+    "name": "André König",
+    "email": "andre.koenig@posteo.de"
+  },
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp"
   },
   "bin": {
     "imacss": "./bin/imacss"
@@ -13,14 +18,15 @@
     "type": "git",
     "url": "git@github.com:akoenig/imacss.git"
   },
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "keywords": [
     "css",
     "images",
     "data uri",
     "base64"
   ],
-  "author": "André König <andre.koenig@posteo.de>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/akoenig/imacss/issues"
   },
