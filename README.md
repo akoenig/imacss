@@ -1,4 +1,4 @@
-# imacss
+# imacss [![Build Status](https://travis-ci.org/akoenig/imacss.png?branch=master)](https://travis-ci.org/akoenig/imacss)
 
 _pronunciation: imax_
 
