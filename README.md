@@ -1,5 +1,7 @@
 # imacss
 
+_pronunciation: imax_
+
 An application and library that transforms image files to [data URIs (rfc2397)](https://www.ietf.org/rfc/rfc2397.txt) and embeds them into a single CSS file as background images.
 
 Let's say you have a web-based frontend which embeds a lot of images (e.g. icons). This referencing produces HTTP requests for every single image. What if you would like to minimize it to just one request? That is something `imacss` can do for you.
