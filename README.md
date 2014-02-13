@@ -8,7 +8,7 @@ Let's say you have a web-based frontend which embeds a lot of images (e.g. icons
 
 ## What?
 
-Okay, enough words. Let's dive straight into a transformation example. If we assume that you have two SVGs, like `github.svg` and `quitter.svg`, `imacss` would generate this CSS code for you.
+Okay, enough words. Let's dive straight into a transformation example. If we assume that you have two SVGs, like `github.svg` and `quitter.svg`, `imacss` will generate this CSS code for you.
 
 ```css
 .imacss.imacss-github {
@@ -80,7 +80,7 @@ Transforms the image files from the specified glob and returns a stream with the
 
 `glob`
 
-The instruction to search for images.
+The path to the images which should be transformed. You can use any glob pattern you want.
 
 `namespace` (optional; default=imacss)
 
