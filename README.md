@@ -113,5 +113,3 @@ imacss
 ## Author
 
 Copyright 2014, [André König](http://iam.andrekoenig.info) (andre.koenig@posteo.de)
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/akoenig/imacss/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
