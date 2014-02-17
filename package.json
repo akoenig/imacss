@@ -33,7 +33,8 @@
   "homepage": "https://github.com/akoenig/imacss",
   "dependencies": {
     "vinyl-fs": "0.0.2",
-    "slug": "~0.4.0"
+    "slug": "~0.4.0",
+    "through2": "~0.4.1"
   },
   "devDependencies": {
     "gulp": "~3.5.2",
