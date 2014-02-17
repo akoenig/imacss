@@ -14,7 +14,6 @@
 'use strict';
 
 var domain   = require('domain'),
-    vfs      = require('vinyl-fs'),
     pipeline = require('./lib'),
     pkg      = require('./package.json');
 
@@ -36,8 +35,9 @@ exports.transform = function transform (glob, clazz) {
         transformation.emit('error', err);
     });
 
-    execution.run(function() {
-        transformation = vfs.src(glob)
+    execution.run(function () {
+
+        transformation = pipeline.createFileStream(glob)
             .pipe(pipeline.purify())
             .pipe(pipeline.slugify())
             .pipe(pipeline.mimeify())

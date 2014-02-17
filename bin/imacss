@@ -16,6 +16,7 @@
 var fs     = require('fs'),
     path   = require('path'),
     imacss = require('../'),
+    pkg    = require('../package.json'),
     args = {
         glob: process.argv[2],
         cssfile: process.argv[3],
@@ -66,6 +67,10 @@ function isPath (str) {
 
 if (!args.glob) {
     return error('Please define the glob to your images.');
+}
+
+if ('version' === args.glob) {
+    return console.log(pkg.version);
 }
 
 //

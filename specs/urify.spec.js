@@ -14,7 +14,7 @@
 'use strict';
 
 var helper  = require('./helper'),
-    urify   = require('../lib/urify')
+    urify   = require('../lib/urify');
 
 describe('The "urification" stream', function () {
 

@@ -14,7 +14,7 @@
 'use strict';
 
 var helper  = require('./helper'),
-    mimeify = require('../lib/mimeify')
+    mimeify = require('../lib/mimeify');
 
 describe('The "mimeification" stream', function () {
 

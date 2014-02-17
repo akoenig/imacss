@@ -102,6 +102,10 @@ imacss
 
 ## Changelog
 
+### Version 0.2.0 (20140217)
+
+- Implemented support for passing a vinyl file object to the transform method.
+
 ### Version 0.1.1 (20140211)
 
 - Fixed typos in the README.

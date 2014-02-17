@@ -14,7 +14,7 @@
 'use strict';
 
 var helper  = require('./helper'),
-    cssify  = require('../lib/cssify')
+    cssify  = require('../lib/cssify');
 
 describe('The "cssification" stream', function () {
 

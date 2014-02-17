@@ -14,7 +14,7 @@
 'use strict';
 
 var helper  = require('./helper'),
-    slugify = require('../lib/slugify')
+    slugify = require('../lib/slugify');
 
 describe('The "slugification" stream', function () {
 

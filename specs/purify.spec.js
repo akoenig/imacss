@@ -14,7 +14,7 @@
 'use strict';
 
 var helper = require('./helper'),
-    purify = require('../lib/purify')
+    purify = require('../lib/purify');
 
 describe('The "purification" stream', function () {
 

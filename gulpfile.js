@@ -18,7 +18,7 @@ var gulp    = require('gulp'),
     jasmine = require('gulp-jasmine'),
     paths   = {};
 
-paths.sources = ['./lib/**/*.js', 'gulpfile.js', 'index.js'];
+paths.sources = ['./lib/**/*.js', './specs/**/*.js', 'gulpfile.js', 'index.js'];
 paths.specs   = ['./specs/**/*.spec.js'];
 
 gulp.task('lint', function () {
