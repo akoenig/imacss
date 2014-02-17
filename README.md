@@ -80,7 +80,9 @@ Transforms the image files from the specified glob and returns a stream with the
 
 `glob`
 
-The path to the images which should be transformed. You can use any glob pattern you want.
+String || [Vinyl](https://github.com/wearefractal/vinyl) file object
+
+The path to the images which should be transformed. You can use any glob pattern you want or you're also able pass single [Vinyl](https://github.com/wearefractal/vinyl) file objects.
 
 `namespace` (optional; default=imacss)
 
