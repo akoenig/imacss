@@ -104,6 +104,10 @@ imacss
 
 ## Changelog
 
+### Version 0.2.2 (20140221)
+
+- Added more files to .npmignore.
+
 ### Version 0.2.1 (20140217)
 
 - Added `preferGlobal` flag to the `package.json`.

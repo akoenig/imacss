@@ -1,6 +1,6 @@
 {
   "name": "imacss",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "An application and library that transforms image files to data URIs and embeds these into a single CSS file.",
   "author": {
     "name": "André König",
