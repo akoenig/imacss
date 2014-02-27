@@ -28,37 +28,154 @@
 
     <div class="container">
       <section id="main_content">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <h1>
+<a name="imacss-" class="anchor" href="#imacss-"><span class="octicon octicon-link"></span></a>imacss <a href="https://travis-ci.org/akoenig/imacss"><img src="https://travis-ci.org/akoenig/imacss.png?branch=master" alt="Build Status"></a>
+</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p><em>pronunciation: imax</em></p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p>An application and library that transforms image files to <a href="https://www.ietf.org/rfc/rfc2397.txt">data URIs (rfc2397)</a> and embeds them into a single CSS file as background images.</p>
+
+<p>Let's say you have a web-based frontend which embeds a lot of images (e.g. icons). This referencing produces HTTP requests for every single image. What if you would like to minimize it to just one request? That is something <code>imacss</code> can do for you.</p>
+
+<h2>
+<a name="what" class="anchor" href="#what"><span class="octicon octicon-link"></span></a>What?</h2>
+
+<p>Okay, enough words. Let's dive straight into a transformation example. If we assume that you have two SVGs, like <code>github.svg</code> and <code>quitter.svg</code>, <code>imacss</code> will generate this CSS code for you.</p>
+
+<div class="highlight highlight-css"><pre><span class="nc">.imacss.imacss-github</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span><span class="sx">url(data:image/svg+xml;base64,iVBORw0KGgoAAAANSUhEBg...)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.imacss.imacss-quitter</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span><span class="sx">url(data:image/svg+xml;base64,iVBORw0KGgoAAAANSUhADA...)</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>You can refer to this images by using the respective CSS classes:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"imacss imacss-quitter"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<h2>
+<a name="cli" class="anchor" href="#cli"><span class="octicon octicon-link"></span></a>CLI</h2>
+
+<p><code>imacss</code> comes with a command-line interface which pipes the output to stdout by default (yeah, plain old text streams FTW!).</p>
+
+<h3>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h3>
+
+<p>Install with <a href="https://npmjs.org/package/imacss">npm</a> globally.</p>
+
+<pre><code>npm install -g imacss
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h3>
+<a name="usage-examples" class="anchor" href="#usage-examples"><span class="octicon octicon-link"></span></a>Usage examples</h3>
+
+<p>Embed all SVGs in a particular directory and all its subdirectories (will pipe the output to stdout).</p>
+
+<pre><code>$ imacss "~/projects/webapp/images/**/*.svg"
+</code></pre>
+
+<p>Embed all SVGs in a particular directory and transfer them to a CSS file which will be saved in the CWD.</p>
+
+<pre><code>$ imacss "~/projects/webapp/images/*.svg" images.svg.css
+</code></pre>
+
+<p>Embed all SVGs <em>and</em> PNGs in a particular directory and transfer them to a CSS file which will be saved in the CWD.</p>
+
+<pre><code>$ imacss "~/projects/webapp/images/*.{svg,png}" images.css
+</code></pre>
+
+<p>If you don't like the <code>imacss</code> selector namespace you are able to modify it as well.</p>
+
+<pre><code>$ imacss "~/projects/webapp/images/*.{svg,png}" images.css foobar
+</code></pre>
+
+<p>will produce this selector structure in the CSS file:</p>
+
+<div class="highlight highlight-css"><pre><span class="nc">.foobar.foobar-github</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h2>
+
+<p>If you would like to use the <code>imacss</code> functionality within your application, there is an API for that.</p>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>Install with <a href="https://npmjs.org/package/imacss">npm</a></p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<pre><code>npm install --save imacss
+</code></pre>
 
 <h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a>Methods</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<h4>
+<a name="transformglob-namespace" class="anchor" href="#transformglob-namespace"><span class="octicon octicon-link"></span></a>transform(glob[, namespace]);</h4>
+
+<p>Transforms the image files from the specified glob and returns a stream with the CSS selectors that can be piped to somewhere else.</p>
+
+<p><strong>Arguments</strong></p>
+
+<p><code>glob</code></p>
+
+<p>String || <a href="https://github.com/wearefractal/vinyl">Vinyl</a> file object</p>
+
+<p>The path to the images which should be transformed. You can use any glob pattern you want or you're also able pass single <a href="https://github.com/wearefractal/vinyl">Vinyl</a> file objects.</p>
+
+<p><code>namespace</code> (optional; default=imacss)</p>
+
+<p>The CSS selector namespace.</p>
 
 <h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a name="usage-example" class="anchor" href="#usage-example"><span class="octicon octicon-link"></span></a>Usage example</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">imacss</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'imacss'</span><span class="p">);</span>
+
+<span class="nx">imacss</span>
+    <span class="p">.</span><span class="nx">transform</span><span class="p">(</span><span class="s1">'/path/to/your/images/*.png'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'error'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">error</span><span class="p">(</span><span class="s1">'Transforming images failed: '</span> <span class="o">+</span> <span class="nx">err</span><span class="p">);</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h2>
+
+<h3>
+<a name="version-022-20140221" class="anchor" href="#version-022-20140221"><span class="octicon octicon-link"></span></a>Version 0.2.2 (20140221)</h3>
+
+<ul>
+<li>Added more files to .npmignore.</li>
+</ul><h3>
+<a name="version-021-20140217" class="anchor" href="#version-021-20140217"><span class="octicon octicon-link"></span></a>Version 0.2.1 (20140217)</h3>
+
+<ul>
+<li>Added <code>preferGlobal</code> flag to the <code>package.json</code>.</li>
+</ul><h3>
+<a name="version-020-20140217" class="anchor" href="#version-020-20140217"><span class="octicon octicon-link"></span></a>Version 0.2.0 (20140217)</h3>
+
+<ul>
+<li>Implemented support for passing a vinyl file object to the transform method.</li>
+</ul><h3>
+<a name="version-011-20140211" class="anchor" href="#version-011-20140211"><span class="octicon octicon-link"></span></a>Version 0.1.1 (20140211)</h3>
+
+<ul>
+<li>Fixed typos in the README.</li>
+</ul><h3>
+<a name="version-010-20140211" class="anchor" href="#version-010-20140211"><span class="octicon octicon-link"></span></a>Version 0.1.0 (20140211)</h3>
+
+<ul>
+<li>Initial Release. Implemented the core functionality (CLI and API).</li>
+</ul><h2>
+<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
+
+<p>Copyright 2014, <a href="http://iam.andrekoenig.info">André König</a> (<a href="mailto:andre.koenig@posteo.de">andre.koenig@posteo.de</a>)</p>
       </section>
     </div>
 
