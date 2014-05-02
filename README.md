@@ -96,7 +96,7 @@ var imacss = require('imacss');
 imacss
     .transform('/path/to/your/images/*.png')
     .on('error', function (err) {
-        error('Transforming images failed: ' + err);
+        console.error('Transforming images failed: ' + err);
     })
     .pipe(process.stdout);
 ```
