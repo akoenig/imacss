@@ -105,6 +105,8 @@ imacss
     .pipe(process.stdout);
 ```
 
+#### Passing a function to customise the resulting CSS rule set
+
 ```javascript
 var imacss = require('imacss');
 
