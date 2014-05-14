@@ -21,15 +21,15 @@ var domain   = require('domain'),
  * Transforms image files to base64 encoded data URIs and embeds them into CSS files.
  *
  * @param  {string} glob A globbing expression for matching particular image files.
- * @param {string} clazz The CSS class which will be used as a prefix.
+ * @param {string | function} css The CSS class which will be used as a prefix, or a function to generate the CSS rule set.
  *
  */
-exports.transform = function transform (glob, clazz) {
+exports.transform = function transform (glob, css) {
 
     var execution = domain.create(),
         transformation;
 
-    clazz = clazz || pkg.name;
+    css = css || pkg.name;
 
     execution.on('error', function (err) {
         transformation.emit('error', err);
@@ -42,7 +42,7 @@ exports.transform = function transform (glob, clazz) {
             .pipe(pipeline.slugify())
             .pipe(pipeline.mimeify())
             .pipe(pipeline.urify())
-            .pipe(pipeline.cssify(clazz));
+            .pipe(pipeline.cssify(css));
     }); 
 
     return transformation;

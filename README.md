@@ -86,6 +86,10 @@ The path to the images which should be transformed. You can use any glob pattern
 
 `namespace` (optional; default=imacss)
 
+String || Function
+
+A string containing the css class namespace prefix, or a function to generate the entire CSS ruleset.
+
 The CSS selector namespace.
 
 ### Usage example
@@ -95,6 +99,21 @@ var imacss = require('imacss');
 
 imacss
     .transform('/path/to/your/images/*.png')
+    .on('error', function (err) {
+        console.error('Transforming images failed: ' + err);
+    })
+    .pipe(process.stdout);
+```
+
+```javascript
+var imacss = require('imacss');
+
+function generateCss(image) {
+    return '.image-' + image.slug + ' { ' + 'background-image:' + 'url(\'' + image.datauri + '\');' }';
+}
+
+imacss
+    .transform('/path/to/your/images/*.png', generateCss)
     .on('error', function (err) {
         console.error('Transforming images failed: ' + err);
     })
