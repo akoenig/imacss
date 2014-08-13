@@ -34,4 +34,22 @@ describe('The "cssification" stream', function () {
         stream.write(image);
         stream.end();
     });
+
+    it('should generate a custom CSS rule set if a function is passed instead of a prefix string', function(done) {
+      
+      var image  = helper.createImage(),
+        generateCss = function generateCss(image) { return image.name; },
+        stream = cssify(generateCss);
+      
+      stream.on('data', function(ruleset) {
+        expect(ruleset).toBeDefined();
+        expect(ruleset).toBe(image.name + '\n');
+        done();
+      });
+      
+      stream.write(image);
+      stream.end();
+
+    });
+
 });
