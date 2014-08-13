@@ -1,4 +1,4 @@
-# UNRELEASED
+# 0.3.0 (2014-08-13)
 
   * Possibility to define a function which will generate an own CSS class structure (by [@juice49](https://github.com/juice49)).
 
