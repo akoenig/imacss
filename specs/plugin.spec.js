@@ -13,9 +13,9 @@
 
 'use strict';
 
-var streams = require('stream'),
-    helper  = require('./helper'),
-    imacss  = require('../');
+var streams = require('stream');
+var helper = require('./helper');
+var imacss = require('../');
 
 describe('The imacss', function () {
     var selector = '.imacss';

@@ -13,14 +13,14 @@
 
 'use strict';
 
-var helper  = require('./helper'),
-    slugify = require('../lib/slugify');
+var helper = require('./helper');
+var slugify = require('../lib/slugify');
 
 describe('The "slugification" stream', function () {
 
     it('should create a slug', function (done) {
-        var image = helper.createImage(),
-            stream = slugify();
+        var image = helper.createImage();
+        var stream = slugify();
 
         stream.on('data', function (image) {
             expect(image.slug).toBeDefined();

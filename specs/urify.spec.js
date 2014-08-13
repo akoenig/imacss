@@ -13,14 +13,14 @@
 
 'use strict';
 
-var helper  = require('./helper'),
-    urify   = require('../lib/urify');
+var helper = require('./helper');
+var urify = require('../lib/urify');
 
 describe('The "urification" stream', function () {
 
     it('should create a data-uri', function (done) {
-        var image = helper.createImage(),
-            stream = urify();
+        var image = helper.createImage();
+        var stream = urify();
 
         stream.on('data', function (image) {
             expect(image.datauri).toBeDefined();

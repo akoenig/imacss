@@ -13,14 +13,14 @@
 
 'use strict';
 
-var helper = require('./helper'),
-    purify = require('../lib/purify');
+var helper = require('./helper');
+var purify = require('../lib/purify');
 
 describe('The "purification" stream', function () {
 
     it('should transform a vinyl file to an internal data structure', function (done) {
-        var imageFile = helper.createImageFile(),
-            stream = purify();
+        var imageFile = helper.createImageFile();
+        var stream = purify();
 
         stream.on('data', function (image) {
             expect(image.name).toBeDefined();

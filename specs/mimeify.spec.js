@@ -13,14 +13,14 @@
 
 'use strict';
 
-var helper  = require('./helper'),
-    mimeify = require('../lib/mimeify');
+var helper = require('./helper');
+var mimeify = require('../lib/mimeify');
 
 describe('The "mimeification" stream', function () {
 
     it('should determine the MIME type of the image', function (done) {
-        var image = helper.createImage(),
-            stream = mimeify();
+        var image = helper.createImage();
+        var stream = mimeify();
 
         stream.on('data', function (image) {
             expect(image.mime).toBeDefined();

@@ -13,9 +13,10 @@
 
 'use strict';
 
-var domain   = require('domain'),
-    pipeline = require('./lib'),
-    pkg      = require('./package.json');
+var domain   = require('domain');
+
+var pipeline = require('./lib');
+var pkg = require('./package.json');
 
 /**
  * Transforms image files to base64 encoded data URIs and embeds them into CSS files.
@@ -26,8 +27,8 @@ var domain   = require('domain'),
  */
 exports.transform = function transform (glob, css) {
 
-    var execution = domain.create(),
-        transformation;
+    var execution = domain.create();
+    var transformation;
 
     css = css || pkg.name;
 

@@ -13,9 +13,9 @@
 
 'use strict';
 
-var fs     = require('fs'),
-    path   = require('path'),
-    gutil  = require('gulp-util');
+var fs = require('fs');
+var path = require('path');
+var gutil = require('gulp-util');
 
 /**
  * Creates a vinyl based file description.
@@ -41,8 +41,8 @@ exports.createImageFile = function createImageFile () {
  *
  */
 exports.createImage = function createImage () {
-    var file  = this.createImageFile(),
-        image = {};
+    var file  = this.createImageFile();
+    var image = {};
 
     image.name     = path.basename(file.path);
     image.contents = file.contents;

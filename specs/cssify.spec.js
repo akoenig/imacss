@@ -13,15 +13,15 @@
 
 'use strict';
 
-var helper  = require('./helper'),
-    cssify  = require('../lib/cssify');
+var helper  = require('./helper');
+var cssify  = require('../lib/cssify');
 
 describe('The "cssification" stream', function () {
 
     it('should generate a CSS selector based on the image data', function (done) {
-        var image  = helper.createImage(),
-            prefix = 'imacss',
-            stream = cssify(prefix);
+        var image = helper.createImage();
+        var prefix = 'imacss';
+        var stream = cssify(prefix);
 
         stream.on('data', function (selector) {
             expect(selector).toBeDefined();
@@ -37,19 +37,17 @@ describe('The "cssification" stream', function () {
 
     it('should generate a custom CSS rule set if a function is passed instead of a prefix string', function(done) {
       
-      var image  = helper.createImage(),
-        generateCss = function generateCss(image) { return image.name; },
-        stream = cssify(generateCss);
+        var image  = helper.createImage();
+        var generateCss = function generateCss(image) { return image.name; };
+        var stream = cssify(generateCss);
       
-      stream.on('data', function(ruleset) {
-        expect(ruleset).toBeDefined();
-        expect(ruleset).toBe(image.name + '\n');
-        done();
-      });
+        stream.on('data', function(ruleset) {
+            expect(ruleset).toBeDefined();
+            expect(ruleset).toBe(image.name + '\n');
+            done();
+        });
       
-      stream.write(image);
-      stream.end();
-
+        stream.write(image);
+        stream.end();
     });
-
 });

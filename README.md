@@ -105,7 +105,7 @@ imacss
     .pipe(process.stdout);
 ```
 
-#### Passing a function to customise the resulting CSS rule set
+#### Passing a function to customize the resulting CSS rule set
 
 ```javascript
 var imacss = require('imacss');
@@ -121,29 +121,6 @@ imacss
     })
     .pipe(process.stdout);
 ```
-
-
-## Changelog
-
-### Version 0.2.2 (20140221)
-
-- Added more files to .npmignore.
-
-### Version 0.2.1 (20140217)
-
-- Added `preferGlobal` flag to the `package.json`.
-
-### Version 0.2.0 (20140217)
-
-- Implemented support for passing a vinyl file object to the transform method.
-
-### Version 0.1.1 (20140211)
-
-- Fixed typos in the README.
-
-### Version 0.1.0 (20140211)
-
-- Initial Release. Implemented the core functionality (CLI and API).
 
 ## Author
 
