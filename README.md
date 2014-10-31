@@ -111,7 +111,7 @@ imacss
 var imacss = require('imacss');
 
 function generateCss(image) {
-    return '.image-' + image.slug + ' { ' + 'background-image:' + 'url(\'' + image.datauri + '\');' }';
+    return '.image-' + image.slug + ' { ' + 'background-image:' + 'url(\'' + image.datauri + '\'); }';
 }
 
 imacss
