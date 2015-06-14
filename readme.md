@@ -44,21 +44,23 @@ Embed all SVGs in a particular directory and all its subdirectories (will pipe t
 
 Embed all SVGs in a particular directory and transfer them to a CSS file which will be saved in the CWD.
 
-    $ imacss "~/projects/webapp/images/*.svg" images.svg.css
+    $ imacss "~/projects/webapp/images/*.svg" > images.svg.css
 
 Embed all SVGs _and_ PNGs in a particular directory and transfer them to a CSS file which will be saved in the CWD.
 
-    $ imacss "~/projects/webapp/images/*.{svg,png}" images.css
+    $ imacss "~/projects/webapp/images/*.{svg,png}" > images.css
 
 If you don't like the `imacss` selector namespace you are able to modify it as well.
 
-    $ imacss "~/projects/webapp/images/*.{svg,png}" images.css foobar
+    $ imacss "~/projects/webapp/images/*.{svg,png}" foobar > images.css
 
 will produce this selector structure in the CSS file:
 
 ```css
 .foobar.foobar-github {...}
 ```
+
+**Important:** Please note that `imacss` does not embed `image/svg+xml` as `base64` strings. Instead it will use the raw `utf-8` representation. 
 
 ## API
 
@@ -124,4 +126,4 @@ imacss
 
 ## Author
 
-Copyright 2014-2015, [André König](http://andrekoenig.info) (andre.koenig@posteo.de)
+Copyright 2014 - 2015, [André König](http://andrekoenig.info) (andre.koenig@posteo.de)

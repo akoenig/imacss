@@ -3,7 +3,7 @@
 /*
  * imacss
  *
- * Copyright(c) 2014 André König <andre.koenig@posteo.de>
+ * Copyright(c) 2014 - 2015 André König <andre.koenig@posteo.de>
  * MIT Licensed
  *
  */
@@ -13,15 +13,16 @@
  *
  */
 
-var fs     = require('fs'),
-    path   = require('path'),
-    imacss = require('../'),
-    pkg    = require('../package.json'),
-    args = {
-        glob: process.argv[2],
-        cssfile: process.argv[3],
-        cssclass: process.argv[4]
-    };
+'use strict';
+
+var path = require('path');
+var imacss = require('../');
+
+var pkg = require('../package.json');
+var args = {
+    glob: process.argv[2],
+    cssclass: process.argv[4]
+};
 
 /**
  * Prints an error message to the console and exits
@@ -73,15 +74,6 @@ if ('version' === args.glob) {
     return console.log(pkg.version);
 }
 
-//
-// Check if a css file has been defined.
-//
-if (args.cssfile && !isPath(args.cssfile)) {
-    args.cssclass = args.cssfile;
-
-    delete args.cssfile;
-}
-
 args.glob = normalizePath(args.glob);
 
 imacss
@@ -89,4 +81,4 @@ imacss
     .on('error', function (err) {
         error('Converting images failed: ' + err);
     })
-    .pipe(args.cssfile ? fs.createWriteStream(args.cssfile) : process.stdout);
+    .pipe(process.stdout);
