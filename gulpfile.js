@@ -23,7 +23,7 @@ paths.specs   = ['./specs/**/*.spec.js'];
 
 gulp.task('lint', function () {
     gulp.src(paths.sources)
-        .pipe(jshint('./.jshintrc'))
+        .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 

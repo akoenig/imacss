@@ -1,6 +1,6 @@
 {
   "name": "imacss",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "An application and library that transforms image files to data URIs and embeds these into a single CSS file.",
   "author": {
     "name": "André König",
@@ -8,7 +8,6 @@
   },
   "license": "MIT",
   "main": "index.js",
-  "preferGlobal": true,
   "scripts": {
     "test": "gulp"
   },
@@ -33,14 +32,15 @@
   },
   "homepage": "https://github.com/akoenig/imacss",
   "dependencies": {
-    "vinyl-fs": "0.3.6",
-    "slug": "~0.5.0",
-    "through2": "~1.1.1"
+    "slug": "^0.9.1",
+    "through2": "^2.0.0",
+    "vinyl-fs": "^1.0.0"
   },
   "devDependencies": {
     "gulp": "~3.8.7",
-    "gulp-jshint": "~1.8.4",
     "gulp-jasmine": "~0.3.0",
-    "gulp-util": "~3.0.0"
+    "gulp-jshint": "~1.8.4",
+    "gulp-util": "~3.0.0",
+    "typescript": "^1.5.0-beta"
   }
 }
