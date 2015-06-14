@@ -13,7 +13,7 @@
 
 'use strict';
 
-var domain   = require('domain');
+var domain = require('domain');
 
 var pipeline = require('./lib');
 var pkg = require('./package.json');

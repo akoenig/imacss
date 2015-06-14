@@ -16,14 +16,16 @@
 var helper = require('./helper');
 var urify = require('../lib/urify');
 
-describe('The "urification" stream', function () {
+var expect = require('expect.js');
 
-    it('should create a data-uri', function (done) {
+describe('The "urification" stream', function suite () {
+
+    it('should create a data-uri', function test (done) {
         var image = helper.createImage();
         var stream = urify();
 
         stream.on('data', function (image) {
-            expect(image.datauri).toBeDefined();
+            expect(image.datauri).not.to.be(undefined);
 
             done();
         });

@@ -17,19 +17,20 @@ var streams = require('stream');
 var helper = require('./helper');
 var imacss = require('../');
 
-describe('The imacss', function () {
+var expect = require('expect.js');
+
+describe('The imacss', function suite () {
     var selector = '.imacss';
 
-    it('"transform" method should be able to handle globs', function (done) {
+    it('"transform" method should be able to handle globs', function test (done) {
         var stream = new streams.Writable();
 
-        imacss.transform('./specs/**/*.svg')
-            .pipe(stream);
+        imacss.transform('./specs/**/*.svg').pipe(stream);
 
-        stream._write = function (css, enc, next) {
+        stream._write = function (css) {
             css = css.toString('utf-8');
 
-            expect(css.substring(0, selector.length)).toBe(selector);
+            expect(css.substring(0, selector.length)).to.be(selector);
 
             done();
         };
@@ -38,13 +39,12 @@ describe('The imacss', function () {
     it('"transform" method should be able to handle a Vinyl file object', function (done) {
         var stream = new streams.Writable();
 
-        imacss.transform(helper.createImageFile())
-            .pipe(stream);
+        imacss.transform(helper.createImageFile()).pipe(stream);
 
-        stream._write = function (css, enc, next) {
+        stream._write = function (css) {
             css = css.toString('utf-8');
 
-            expect(css.substring(0, selector.length)).toBe(selector);
+            expect(css.substring(0, selector.length)).to.be(selector);
 
             done();
         };

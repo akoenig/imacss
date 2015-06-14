@@ -16,17 +16,19 @@
 var helper  = require('./helper');
 var cssify  = require('../lib/cssify');
 
-describe('The "cssification" stream', function () {
+var expect = require('expect.js');
 
-    it('should generate a CSS selector based on the image data', function (done) {
+describe('The "cssification" stream', function suite () {
+
+    it('should generate a CSS selector based on the image data', function test (done) {
         var image = helper.createImage();
         var prefix = 'imacss';
         var stream = cssify(prefix);
 
         stream.on('data', function (selector) {
-            expect(selector).toBeDefined();
+            expect(selector).not.to.be(undefined);
 
-            expect(selector.substring(1, prefix.length + 1)).toBe(prefix);
+            expect(selector.substring(1, prefix.length + 1)).to.be(prefix);
 
             done();
         });
@@ -35,15 +37,16 @@ describe('The "cssification" stream', function () {
         stream.end();
     });
 
-    it('should generate a custom CSS rule set if a function is passed instead of a prefix string', function(done) {
+    it('should generate a custom CSS rule set if a function is passed instead of a prefix string', function test (done) {
       
         var image  = helper.createImage();
         var generateCss = function generateCss(image) { return image.name; };
         var stream = cssify(generateCss);
       
         stream.on('data', function(ruleset) {
-            expect(ruleset).toBeDefined();
-            expect(ruleset).toBe(image.name + '\n');
+            expect(ruleset).not.to.be(undefined);
+            expect(ruleset).to.be(image.name + '\n');
+
             done();
         });
       

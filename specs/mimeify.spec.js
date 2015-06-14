@@ -16,15 +16,17 @@
 var helper = require('./helper');
 var mimeify = require('../lib/mimeify');
 
-describe('The "mimeification" stream', function () {
+var expect = require('expect.js');
 
-    it('should determine the MIME type of the image', function (done) {
+describe('The "mimeification" stream', function suite () {
+
+    it('should determine the MIME type of the image', function test (done) {
         var image = helper.createImage();
         var stream = mimeify();
 
         stream.on('data', function (image) {
-            expect(image.mime).toBeDefined();
-            expect(image.mime).toBe('image/svg+xml');
+            expect(image.mime).not.to.be(undefined);
+            expect(image.mime).to.be('image/svg+xml');
 
             done();
         });

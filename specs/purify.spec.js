@@ -16,16 +16,18 @@
 var helper = require('./helper');
 var purify = require('../lib/purify');
 
-describe('The "purification" stream', function () {
+var expect = require('expect.js');
 
-    it('should transform a vinyl file to an internal data structure', function (done) {
+describe('The "purification" stream', function suite () {
+
+    it('should transform a vinyl file to an internal data structure', function test (done) {
         var imageFile = helper.createImageFile();
         var stream = purify();
 
         stream.on('data', function (image) {
-            expect(image.name).toBeDefined();
-            expect(image.contents).toBeDefined();
-            expect(image.base64).toBeDefined();
+            expect(image.name).not.to.be(undefined);
+            expect(image.contents).not.to.be(undefined);
+            expect(image.base64).not.to.be(undefined);
 
             done();
         });

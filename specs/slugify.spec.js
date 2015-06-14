@@ -16,14 +16,16 @@
 var helper = require('./helper');
 var slugify = require('../lib/slugify');
 
-describe('The "slugification" stream', function () {
+var expect = require('expect.js');
 
-    it('should create a slug', function (done) {
+describe('The "slugification" stream', function suite () {
+
+    it('should create a slug', function test (done) {
         var image = helper.createImage();
         var stream = slugify();
 
         stream.on('data', function (image) {
-            expect(image.slug).toBeDefined();
+            expect(image.slug).not.to.be(undefined);
 
             done();
         });
