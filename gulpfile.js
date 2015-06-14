@@ -1,7 +1,7 @@
 /*
  * imacss
  *
- * Copyright(c) 2014-2015 André König <andre.koenig@posteo.de>
+ * Copyright(c) 2014 - 2015 André König <andre.koenig@posteo.de>
  * MIT Licensed
  *
  */
@@ -22,13 +22,13 @@ paths.sources = ['./lib/**/*.js', './specs/**/*.js', 'gulpfile.js', 'index.js'];
 paths.specs   = ['./specs/**/*.spec.js'];
 
 gulp.task('lint', function () {
-    gulp.src(paths.sources)
+    return gulp.src(paths.sources)
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
 gulp.task('test', function () {
-    gulp.src(paths.specs)
+    return gulp.src(paths.specs)
         .pipe(jasmine());
 });
 
