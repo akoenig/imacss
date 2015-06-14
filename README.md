@@ -99,7 +99,7 @@ var imacss = require('imacss');
 
 imacss
     .transform('/path/to/your/images/*.png')
-    .on('error', function (err) {
+    .on('error', function onError (err) {
         console.error('Transforming images failed: ' + err);
     })
     .pipe(process.stdout);
@@ -124,4 +124,4 @@ imacss
 
 ## Author
 
-Copyright 2014, [André König](http://iam.andrekoenig.info) (andre.koenig@posteo.de)
+Copyright 2014-2015, [André König](http://andrekoenig.info) (andre.koenig@posteo.de)
