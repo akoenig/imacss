@@ -1,4 +1,4 @@
-# UNRELEASED
+# 1.0.0 (2015-06-15)
 
   * ea1d1ea refactoring: `mocha` migration.
   * d90808a breaking change: the CLI does not provide the possibility for piping into a file. Just use `imacss *.svg > images.css`
