@@ -1,3 +1,10 @@
+# UNRELEASED
+
+  * ea1d1ea refactoring: `mocha` migration.
+  * d90808a breaking change: the CLI does not provide the possibility for piping into a file. Just use `imacss *.svg > images.css`
+  * c87cef4 feature: embedding SVG images as raw text strings instead of base64
+  * 34639f4 deps: upgrade
+
 # 0.3.0 (2014-08-13)
 
   * Possibility to define a function which will generate an own CSS class structure (by [@juice49](https://github.com/juice49)).
